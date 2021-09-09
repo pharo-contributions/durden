@@ -16,6 +16,11 @@ SpPresenter >> hasBeenReinstalled [
 ]
 
 { #category : #'*Durden' }
+SpPresenter >> isDropInContainer [	
+	^ false
+]
+
+{ #category : #'*Durden' }
 SpPresenter >> newDragMeButton [
 	| i |
 	i := self instantiate: SpDragMe.

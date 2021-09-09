@@ -46,16 +46,31 @@ SpDropInDragableContainer >> beTopToBottom [
 	dropInContainer beTopToBottom
 ]
 
+{ #category : #'initialize-release' }
+SpDropInDragableContainer >> close [
+
+	owner noteThatWidgetHasBeenClosed: self
+]
+
 { #category : #initialization }
 SpDropInDragableContainer >> initializePresenters [
 
 	super initializePresenters.
 	toolbar := self newToolbar.
 	toolbar addItem: self newDragMeButton.
-	self beNormalContainer.
+	toolbar addItem: (self newToolbarButton
+			 label: 'X';
+			 action: [ self close ];
+			 yourself).
+	self beNormalContainer
 ]
 
 { #category : #initialization }
 SpDropInDragableContainer >> initializeWindow: aWindow [ 
 	window := aWindow.
+]
+
+{ #category : #initialization }
+SpDropInDragableContainer >> isDropInContainer [	
+	^ true
 ]

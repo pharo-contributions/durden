@@ -49,7 +49,7 @@ SpDropInContainer >> initializePresenters [
 	dragHere := self instantiate: SpDragHere.
 	dragHere borderWidth: 2.
 	dragHere dropInto: self.
-
+	self borderWidth: 2.
 	self wantsDrop: [ :transfer :destination | 
 		self shouldAcceptTransfer: transfer into: destination ].
 	self acceptDrop: [ :transfer :destination | 
@@ -66,7 +66,9 @@ SpDropInContainer >> install: aPresenter [
 	presenters add: newPresenter.
 	layout removeAll.
 	presenters do: [ :p | layout add: p ].
-	layout add: dragHere height: 10.
+
+	(presenters anySatisfy: [ :p | p isDropInContainer ]) ifFalse: [ 
+		layout add: dragHere height: 10 ].
 	^ newPresenter
 ]
 
@@ -84,6 +86,11 @@ SpDropInContainer >> installedPresenters [
 ]
 
 { #category : #initialization }
+SpDropInContainer >> isDropInContainer [	
+	^ true
+]
+
+{ #category : #initialization }
 SpDropInContainer >> newLayout [
 
 	^ newLayoutBlock value
@@ -95,7 +102,10 @@ SpDropInContainer >> noteThatWidgetHasBeenClosed: aPresenter [
 	presenters remove: aPresenter.
 	layout removeAll.
 	presenters do: [ :p | layout add: p ].
-	layout add: dragHere height: 10
+	(presenters anySatisfy: [ :p | p isDropInContainer ]) ifFalse: [ 
+		presenters
+			ifEmpty: [ layout add: dragHere ]
+			ifNotEmpty: [ layout add: dragHere height: 10 ] ]
 ]
 
 { #category : #initialization }

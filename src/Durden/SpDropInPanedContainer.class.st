@@ -34,6 +34,11 @@ SpDropInPanedContainer >> initializePresenters [
 ]
 
 { #category : #initialization }
+SpDropInPanedContainer >> isDropInContainer [	
+	^ true
+]
+
+{ #category : #initialization }
 SpDropInPanedContainer >> newLayout [
 
 	^ newLayoutBlock value
