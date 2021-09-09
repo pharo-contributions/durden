@@ -20,7 +20,7 @@ SpDropInDragableContainer class >> defaultSpec [
 
 { #category : #initialization }
 SpDropInDragableContainer >> adaptToDropInto: aDestination [
-	window close. 
+	window ifNotNil: [window close]. 
 ]
 
 { #category : #initialization }

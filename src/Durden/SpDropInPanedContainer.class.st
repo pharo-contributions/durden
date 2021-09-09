@@ -38,6 +38,11 @@ SpDropInPanedContainer >> isDropInContainer [
 	^ true
 ]
 
+{ #category : #accessing }
+SpDropInPanedContainer >> left [
+	^ left
+]
+
 { #category : #initialization }
 SpDropInPanedContainer >> newLayout [
 
@@ -51,4 +56,9 @@ SpDropInPanedContainer >> resetLayout [
 	layout
 		add: left;
 		add: right
+]
+
+{ #category : #accessing }
+SpDropInPanedContainer >> right [
+	^ right
 ]

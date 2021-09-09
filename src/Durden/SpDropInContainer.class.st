@@ -41,6 +41,16 @@ SpDropInContainer >> dropEnabled: aBoolean [
 ]
 
 { #category : #initialization }
+SpDropInContainer >> ensureNoLoopWith: aSp [
+	| current | 
+	current := self. 
+	[ current isNil ] whileFalse: [ 
+		current owner = aSp ifTrue: [ ^ self error: 'Invalid looping composition' ].
+		current := current owner. 
+	]
+]
+
+{ #category : #initialization }
 SpDropInContainer >> initializePresenters [
 
 	super initializePresenters.
@@ -62,7 +72,6 @@ SpDropInContainer >> install: aPresenter [
 
 	| newPresenter |
 	newPresenter := aPresenter adaptToDropInto: self.
-	newPresenter owner: self.
 	presenters add: newPresenter.
 	layout removeAll.
 	presenters do: [ :p | layout add: p ].
@@ -74,9 +83,11 @@ SpDropInContainer >> install: aPresenter [
 
 { #category : #initialization }
 SpDropInContainer >> installTransfer: transfer into: destination [
-
-	(destination install: transfer passenger) owner: self.
-	transfer passenger hasBeenReinstalled
+	| installed | 
+	self ensureNoLoopWith: transfer passenger. 
+	transfer passenger hasBeenReinstalled.
+	installed := (self install: transfer passenger).
+	installed owner: self.
 ]
 
 { #category : #'as yet unclassified' }

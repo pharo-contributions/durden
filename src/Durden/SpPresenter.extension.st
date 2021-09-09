@@ -12,7 +12,7 @@ SpPresenter >> canBeAdaptedToDropInto: aTransfer [
 
 { #category : #'*Durden' }
 SpPresenter >> hasBeenReinstalled [
-	" Hook "
+	owner noteThatWidgetHasBeenClosed: self.
 ]
 
 { #category : #'*Durden' }
