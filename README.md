@@ -1,4 +1,4 @@
-# durden
+# Tyler Durden
 Simple tiler 
 
 It adds two kinds of spec presenters: 
