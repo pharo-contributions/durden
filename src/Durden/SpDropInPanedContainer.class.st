@@ -1,3 +1,8 @@
+"
+Similar to DropInContainer, but accepts two children (2 SpDropInContainer) arranged in a SpPanedLayout (thus they can be resized).
+
+Layout can be horizontal (#beLeftToRight) or vertical (#beTopToBottom)
+"
 Class {
 	#name : #SpDropInPanedContainer,
 	#superclass : #SpPresenter,

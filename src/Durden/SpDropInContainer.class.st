@@ -1,3 +1,11 @@
+"
+This is the base class to accept DropIn presenters.
+
+It can arrange its ""children"" horizontally (#beLeftToRight) or vertically (#beTopToBottom)
+
+It can accept unlimited number of DropIn by offering an empty space on the left or the bottom where new presenters can be droped
+
+"
 Class {
 	#name : #SpDropInContainer,
 	#superclass : #SpPresenter,
@@ -113,6 +121,7 @@ SpDropInContainer >> noteThatWidgetHasBeenClosed: aPresenter [
 	presenters remove: aPresenter.
 	layout removeAll.
 	presenters do: [ :p | layout add: p ].
+	self flag: 'It should be possible to have a container that accepts only 1 dropIn (ex: for PanedContainer'.
 	(presenters anySatisfy: [ :p | p isDropInContainer ]) ifFalse: [ 
 		presenters
 			ifEmpty: [ layout add: dragHere ]
