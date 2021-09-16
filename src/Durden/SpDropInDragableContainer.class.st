@@ -1,3 +1,11 @@
+"
+A DropInContainer with a tool bar containing a button to drag-and-drop itself into another DropInContainer.
+
+Inside (area to receive DropIns) can be a SpDropInContainer (#beNormalContainer) or a SpDropInPanedContainer (#bePanedContainer)
+
+It can have a horizontal (#beLeftToRight) or vertical (#beTopToBottom) layout
+
+"
 Class {
 	#name : #SpDropInDragableContainer,
 	#superclass : #SpPresenter,
