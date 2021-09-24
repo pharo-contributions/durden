@@ -41,9 +41,7 @@ SpMultiDropInContainer >> install: aPresenter [
 	presenters add: newPresenter.
 	layout removeAll.
 	presenters do: [ :p | layout add: p ].
-
-	(presenters anySatisfy: [ :p | p isDropInContainer ]) ifFalse: [ 
-		layout add: dragHere height: 10 ].
+	self shouldHideDragHere ifFalse: [ layout add: dragHere height: 10 ].
 	^ newPresenter
 ]
 
@@ -71,4 +69,10 @@ SpMultiDropInContainer >> resetLayout [
 	super resetLayout.
 	presenters do: [ :p | layout add: p ].
 	layout add: dragHere
+]
+
+{ #category : #initialization }
+SpMultiDropInContainer >> shouldHideDragHere [
+
+	^ presenters anySatisfy: [ :p | p isDropInContainer ]
 ]

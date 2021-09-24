@@ -41,8 +41,6 @@ SpAbstractDropInContainer >> ensureNoLoopWith: aSp [
 SpAbstractDropInContainer >> initializePresenters [
 
 	super initializePresenters.
-
-
 	dragHere := self instantiate: SpDragHere.
 	dragHere borderWidth: 2.
 	dragHere dropInto: self.
