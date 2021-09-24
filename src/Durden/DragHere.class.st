@@ -1,3 +1,6 @@
+"
+I am a morphic pane that implements that allows the definition of accepting or rejecting drops according to valuable objects (block by example )
+"
 Class {
 	#name : #DragHere,
 	#superclass : #PanelMorph,

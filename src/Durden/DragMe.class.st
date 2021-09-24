@@ -1,3 +1,6 @@
+"
+I am a morph that represents a button (kind of a clickable something) with all the configuration ready to activate ""start dragging"" feature. 
+"
 Class {
 	#name : #DragMe,
 	#superclass : #PluggableButtonMorph,

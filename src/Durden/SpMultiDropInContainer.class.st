@@ -1,3 +1,6 @@
+"
+I accept dropped presenters and i extend my surgace for 
+"
 Class {
 	#name : #SpMultiDropInContainer,
 	#superclass : #SpAbstractDropInContainer,

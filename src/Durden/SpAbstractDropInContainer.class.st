@@ -1,3 +1,6 @@
+"
+I define the basic abstract feature of a spec surface allowing to accept dropped spec presenters
+"
 Class {
 	#name : #SpAbstractDropInContainer,
 	#superclass : #SpPresenter,
