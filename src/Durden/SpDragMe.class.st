@@ -1,3 +1,9 @@
+"
+I am a drag button. 
+I require a passenger to transfer.
+The passenger must be set before hand . 
+
+"
 Class {
 	#name : #SpDragMe,
 	#superclass : #SpButtonPresenter,
@@ -10,7 +16,7 @@ Class {
 { #category : #specs }
 SpDragMe class >> adapterName [
 
-	^ #SpMorphicDraggerAdapter
+	^ #SpMorphicDragMeAdapter
 ]
 
 { #category : #accessing }

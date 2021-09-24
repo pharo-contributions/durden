@@ -1,3 +1,6 @@
+"
+I am a version of the dropin container that does not allow more than a single presenter. 
+"
 Class {
 	#name : #SpSingleDropInContainer,
 	#superclass : #SpAbstractDropInContainer,

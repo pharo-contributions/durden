@@ -1,3 +1,6 @@
+"
+I am a morphic adapter that puts together the DragHere morph with a SpDragHere spec widget
+"
 Class {
 	#name : #SpMorphicDragHereAdapter,
 	#superclass : #SpMorphicContainerAdapter,

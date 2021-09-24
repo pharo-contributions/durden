@@ -1,3 +1,7 @@
+"
+I am a draggable container. 
+I am configurable in my layout and kind of internal container. 
+"
 Class {
 	#name : #SpDropInDragableContainer,
 	#superclass : #SpPresenter,

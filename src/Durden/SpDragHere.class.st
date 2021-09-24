@@ -1,3 +1,8 @@
+"
+I work as a container that accepts drops into. 
+I cannot be shown by my self, but i can be embedded into different containers. 
+
+"
 Class {
 	#name : #SpDragHere,
 	#superclass : #SpContainerPresenter,

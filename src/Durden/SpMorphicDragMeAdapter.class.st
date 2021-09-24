@@ -1,5 +1,8 @@
+"
+I am a morphic adapter that puts together the DragMe morph with a SpDragMe spec widget
+"
 Class {
-	#name : #SpMorphicDraggerAdapter,
+	#name : #SpMorphicDragMeAdapter,
 	#superclass : #SpMorphicButtonAdapter,
 	#instVars : [
 		'transferMorph'
@@ -8,7 +11,7 @@ Class {
 }
 
 { #category : #factory }
-SpMorphicDraggerAdapter >> newButton [
+SpMorphicDragMeAdapter >> newButton [
 
 	^ DragMe
 		  on: self
@@ -19,7 +22,7 @@ SpMorphicDraggerAdapter >> newButton [
 ]
 
 { #category : #accessing }
-SpMorphicDraggerAdapter >> performAction: event [
+SpMorphicDragMeAdapter >> performAction: event [
 
 	transferMorph := self model transferPassenger buildWithSpec.
 	transferMorph dragHand: event hand .
@@ -32,7 +35,7 @@ SpMorphicDraggerAdapter >> performAction: event [
 ]
 
 { #category : #factory }
-SpMorphicDraggerAdapter >> startDrag: event [
+SpMorphicDragMeAdapter >> startDrag: event [
 
 	transferMorph := self model transferPassenger buildWithSpec.
 	transferMorph
