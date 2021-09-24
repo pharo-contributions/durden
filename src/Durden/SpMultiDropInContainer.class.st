@@ -1,5 +1,5 @@
 Class {
-	#name : #SpDropInContainer,
+	#name : #SpMultiDropInContainer,
 	#superclass : #SpPresenter,
 	#instVars : [
 		'dragHere',
@@ -11,37 +11,37 @@ Class {
 }
 
 { #category : #initialization }
-SpDropInContainer >> acceptDrop: aBlock [
+SpMultiDropInContainer >> acceptDrop: aBlock [
  	dragHere acceptDrop: aBlock
 ]
 
 { #category : #initialization }
-SpDropInContainer >> beLeftToRight [
+SpMultiDropInContainer >> beLeftToRight [
 
 	newLayoutBlock := [ SpBoxLayout newLeftToRight ].
 	self resetLayout
 ]
 
 { #category : #initialization }
-SpDropInContainer >> beTopToBottom [
+SpMultiDropInContainer >> beTopToBottom [
 
 	newLayoutBlock := [ SpBoxLayout newTopToBottom ].
 	self resetLayout
 ]
 
 { #category : #accessing }
-SpDropInContainer >> borderWidth: anInteger [ 
+SpMultiDropInContainer >> borderWidth: anInteger [ 
 	 dragHere borderWidth: anInteger.
 	dragHere borderColor: Color black .
 ]
 
 { #category : #'drag and drop' }
-SpDropInContainer >> dropEnabled: aBoolean [ 
+SpMultiDropInContainer >> dropEnabled: aBoolean [ 
 	dragHere dropEnabled: aBoolean 
 ]
 
 { #category : #initialization }
-SpDropInContainer >> ensureNoLoopWith: aSp [
+SpMultiDropInContainer >> ensureNoLoopWith: aSp [
 	| current | 
 	current := self. 
 	[ current isNil ] whileFalse: [ 
@@ -51,10 +51,10 @@ SpDropInContainer >> ensureNoLoopWith: aSp [
 ]
 
 { #category : #initialization }
-SpDropInContainer >> initializePresenters [
+SpMultiDropInContainer >> initializePresenters [
 
 	super initializePresenters.
-
+	
 	presenters := OrderedCollection new.
 	dragHere := self instantiate: SpDragHere.
 	dragHere borderWidth: 2.
@@ -68,7 +68,7 @@ SpDropInContainer >> initializePresenters [
 ]
 
 { #category : #initialization }
-SpDropInContainer >> install: aPresenter [
+SpMultiDropInContainer >> install: aPresenter [
 
 	| newPresenter |
 	newPresenter := aPresenter adaptToDropInto: self.
@@ -82,7 +82,7 @@ SpDropInContainer >> install: aPresenter [
 ]
 
 { #category : #initialization }
-SpDropInContainer >> installTransfer: transfer into: destination [
+SpMultiDropInContainer >> installTransfer: transfer into: destination [
 	| installed | 
 	self ensureNoLoopWith: transfer passenger. 
 	transfer passenger hasBeenReinstalled.
@@ -91,24 +91,24 @@ SpDropInContainer >> installTransfer: transfer into: destination [
 ]
 
 { #category : #'as yet unclassified' }
-SpDropInContainer >> installedPresenters [
+SpMultiDropInContainer >> installedPresenters [
 
 	^ presenters
 ]
 
 { #category : #initialization }
-SpDropInContainer >> isDropInContainer [	
+SpMultiDropInContainer >> isDropInContainer [	
 	^ true
 ]
 
 { #category : #initialization }
-SpDropInContainer >> newLayout [
+SpMultiDropInContainer >> newLayout [
 
 	^ newLayoutBlock value
 ]
 
 { #category : #testing }
-SpDropInContainer >> noteThatWidgetHasBeenClosed: aPresenter [
+SpMultiDropInContainer >> noteThatWidgetHasBeenClosed: aPresenter [
 
 	presenters remove: aPresenter.
 	layout removeAll.
@@ -120,7 +120,7 @@ SpDropInContainer >> noteThatWidgetHasBeenClosed: aPresenter [
 ]
 
 { #category : #initialization }
-SpDropInContainer >> resetLayout [
+SpMultiDropInContainer >> resetLayout [
 
 	layout := self newLayout.
 	presenters do: [ :p | layout add: p ].
@@ -128,13 +128,13 @@ SpDropInContainer >> resetLayout [
 ]
 
 { #category : #initialization }
-SpDropInContainer >> shouldAcceptTransfer: aTransfer into: aDestination [
+SpMultiDropInContainer >> shouldAcceptTransfer: aTransfer into: aDestination [
 
 	(aTransfer isKindOf: SpTransferMorph) ifFalse: [ ^ false ].
 	^ aTransfer passenger canBeAdaptedToDropInto: aDestination
 ]
 
 { #category : #initialization }
-SpDropInContainer >> wantsDrop: aBlock [
+SpMultiDropInContainer >> wantsDrop: aBlock [
  	dragHere wantsDrop: aBlock
 ]

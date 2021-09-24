@@ -28,8 +28,8 @@ SpDropInPanedContainer >> initializePresenters [
 
 	super initializePresenters.
 
-	left := self instantiate: SpDropInContainer.
-	right := self instantiate: SpDropInContainer.
+	left := self instantiate: SpSingleDropInContainer.
+	right := self instantiate: SpSingleDropInContainer.
 	self beTopToBottom
 ]
 

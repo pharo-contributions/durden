@@ -31,7 +31,7 @@ SpDropInDragableContainer >> beLeftToRight [
 { #category : #initialization }
 SpDropInDragableContainer >> beNormalContainer [
 
-	dropInContainer := self instantiate: SpDropInContainer.
+	dropInContainer := self instantiate: SpSingleDropInContainer.
 ]
 
 { #category : #initialization }
