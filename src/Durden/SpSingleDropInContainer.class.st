@@ -60,6 +60,12 @@ SpSingleDropInContainer >> install: aPresenter [
 ]
 
 { #category : #initialization }
+SpSingleDropInContainer >> installTransfer: transfer [
+
+	self installTransfer: transfer into: self
+]
+
+{ #category : #initialization }
 SpSingleDropInContainer >> installTransfer: transfer into: destination [
 	| installed | 
 	self ensureNoLoopWith: transfer passenger. 

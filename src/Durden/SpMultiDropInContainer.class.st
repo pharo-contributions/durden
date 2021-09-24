@@ -82,6 +82,12 @@ SpMultiDropInContainer >> install: aPresenter [
 ]
 
 { #category : #initialization }
+SpMultiDropInContainer >> installTransfer: transfer [
+
+	self installTransfer: transfer into: self
+]
+
+{ #category : #initialization }
 SpMultiDropInContainer >> installTransfer: transfer into: destination [
 	| installed | 
 	self ensureNoLoopWith: transfer passenger. 

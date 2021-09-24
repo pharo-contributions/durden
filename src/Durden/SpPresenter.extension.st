@@ -12,7 +12,8 @@ SpPresenter >> canBeAdaptedToDropInto: aTransfer [
 
 { #category : #'*Durden' }
 SpPresenter >> hasBeenReinstalled [
-	owner noteThatWidgetHasBeenClosed: self.
+
+	owner noteThatWidgetHasBeenClosed: self
 ]
 
 { #category : #'*Durden' }
@@ -27,4 +28,9 @@ SpPresenter >> newDragMeButton [
 	i passenger: self. 
 	i label: 'Drag me'.
 	^ i
+]
+
+{ #category : #'*Durden' }
+SpPresenter >> noteThatWidgetHasBeenClosed: aSpDragMe [ 
+
 ]
