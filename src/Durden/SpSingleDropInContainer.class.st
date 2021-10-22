@@ -27,6 +27,12 @@ SpSingleDropInContainer >> install: aPresenter [
 	^ presenter
 ]
 
+{ #category : #'as yet unclassified' }
+SpSingleDropInContainer >> installedPresenters [
+
+	^ presenter ifNil: [ {  } ] ifNotNil: [ { presenter } ]
+]
+
 { #category : #initialization }
 SpSingleDropInContainer >> newLayout [
 	^ SpBoxLayout newTopToBottom 

@@ -45,6 +45,15 @@ SpMultiDropInContainer >> install: aPresenter [
 	^ newPresenter
 ]
 
+{ #category : #'as yet unclassified' }
+SpMultiDropInContainer >> installedPresenters [
+
+	^ presenters flatCollect: [ :a | 
+		  (a respondsTo: #installedPresenters)
+			  ifTrue: [ a installedPresenters ]
+			  ifFalse: [ { a } ] ]
+]
+
 { #category : #initialization }
 SpMultiDropInContainer >> newLayout [
 

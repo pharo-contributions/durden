@@ -67,6 +67,18 @@ DragMe >> startDrag: event [
 	draggingAction value
 ]
 
+{ #category : #actions }
+DragMe >> startDragging [
+
+	self performAction: (MouseButtonEvent new
+			 setType: #mouseDown
+			 position: (self pointInWorld: self center)
+			 which: MouseEvent redButton
+			 buttons: MouseEvent redButton
+			 hand: self activeHand
+			 stamp: Time millisecondClockValue) "Some Morphs report local coords"
+]
+
 { #category : #'event handling' }
 DragMe >> whenDraggingDo: aBlock [
 

@@ -13,10 +13,23 @@ Class {
 	#category : #'Durden-Spec-DragDrop'
 }
 
+{ #category : #visiting }
+SpDropInPanedContainer >> acceptDrop: aFullBlockClosure [
+
+	self left acceptDrop: aFullBlockClosure.
+	self right acceptDrop: aFullBlockClosure
+]
+
 { #category : #'be multiple' }
 SpDropInPanedContainer >> beLeftMultiple [
 
 	self setLeftMultiple.
+	self resetLayout
+]
+
+{ #category : #'be single' }
+SpDropInPanedContainer >> beLeftPaned [
+	self setLeftPaned.
 	self resetLayout
 ]
 
@@ -62,6 +75,19 @@ SpDropInPanedContainer >> beTopToBottom [
 	self resetLayout
 ]
 
+{ #category : #accessing }
+SpDropInPanedContainer >> borderWidth: anInteger [ 
+	self left borderWidth: anInteger .
+	self right borderWidth: anInteger 
+]
+
+{ #category : #'drag and drop' }
+SpDropInPanedContainer >> dropEnabled: aBoolean [
+
+	self left dropEnabled: aBoolean.
+	self right dropEnabled: aBoolean
+]
+
 { #category : #initialization }
 SpDropInPanedContainer >> initializePresenters [
 	super initializePresenters.
@@ -69,6 +95,11 @@ SpDropInPanedContainer >> initializePresenters [
 	self setSingle. 
 	self beTopToBottom.
 	
+]
+
+{ #category : #'as yet unclassified' }
+SpDropInPanedContainer >> installedPresenters [
+	^ self left installedPresenters, self right installedPresenters
 ]
 
 { #category : #initialization }
@@ -108,6 +139,12 @@ SpDropInPanedContainer >> setLeftMultiple [
 ]
 
 { #category : #'set single multiple' }
+SpDropInPanedContainer >> setLeftPaned [
+
+	left := self instantiate: SpDropInPanedContainer
+]
+
+{ #category : #'set single multiple' }
 SpDropInPanedContainer >> setLeftSingle [
 
 	left := self instantiate: SpSingleDropInContainer
@@ -135,4 +172,11 @@ SpDropInPanedContainer >> setSingle [
 
 	self setLeftSingle.
 	self setRightSingle.
+]
+
+{ #category : #initialization }
+SpDropInPanedContainer >> wantsDrop: aFullBlockClosure [
+
+	self left wantsDrop: aFullBlockClosure.
+	self right wantsDrop: aFullBlockClosure
 ]

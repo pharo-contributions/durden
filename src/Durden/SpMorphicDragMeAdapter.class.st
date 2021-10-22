@@ -45,3 +45,9 @@ SpMorphicDragMeAdapter >> startDrag: event [
 
 	event hand grabMorph: transferMorph
 ]
+
+{ #category : #actions }
+SpMorphicDragMeAdapter >> startDragging [
+
+	widget startDragging
+]

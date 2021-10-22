@@ -24,6 +24,11 @@ SpDragMe >> passenger: aSpColorPicker [
 	passenger := aSpColorPicker
 ]
 
+{ #category : #actions }
+SpDragMe >> startDragging [
+	self adapter startDragging
+]
+
 { #category : #'as yet unclassified' }
 SpDragMe >> transferPassenger [
 
