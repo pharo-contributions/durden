@@ -8,8 +8,7 @@ Class {
 	#instVars : [
 		'toolbar',
 		'dropInContainer',
-		'window',
-		'containerClass'
+		'window'
 	],
 	#category : #'Durden-Spec-DragDrop'
 }
