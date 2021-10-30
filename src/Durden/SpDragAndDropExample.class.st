@@ -9,11 +9,6 @@ Class {
 }
 
 { #category : #examples }
-SpDragAndDropExample >> buttonLabelTo: aPresenter [
-	^'I am a button to be dragged into the ' , (self describe: aPresenter)
-]
-
-{ #category : #examples }
 SpDragAndDropExample >> createDraggableWith: aDraggableClass [
 
 	dragButton := aDraggableClass new
