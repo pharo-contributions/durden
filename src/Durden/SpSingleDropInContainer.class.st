@@ -20,6 +20,7 @@ SpSingleDropInContainer >> initializePresenters [
 
 { #category : #initialization }
 SpSingleDropInContainer >> install: aPresenter [
+	"note: called by the default #acceptDrop: block"
 
 	presenter := aPresenter adaptToDropInto: self.
 	layout removeAll.

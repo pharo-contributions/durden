@@ -1,7 +1,7 @@
 "
-I am a drag button. 
-I require a passenger to transfer.
-The passenger must be set before hand . 
+I am a ""drag"" button. 
+I am not actually dragged, but clicking on me will allow to drag a passenger (typically a larger SpPresenter containing me)
+I therefore require a passenger to transfer that must be set before hand . 
 
 "
 Class {
@@ -20,18 +20,13 @@ SpDragMe class >> adapterName [
 ]
 
 { #category : #accessing }
-SpDragMe >> passenger: aSpColorPicker [ 
-	passenger := aSpColorPicker
-]
-
-{ #category : #actions }
-SpDragMe >> startDragging [
-	self adapter startDragging
+SpDragMe >> passenger: aWidget [
+	"the widget 'carried' by this drag button"
+	passenger := aWidget
 ]
 
 { #category : #'as yet unclassified' }
 SpDragMe >> transferPassenger [
-
 	^ SpTransferPresenter new
 		  transfer: passenger;
 		  from: self;

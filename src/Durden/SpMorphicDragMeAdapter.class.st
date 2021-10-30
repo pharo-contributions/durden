@@ -36,7 +36,8 @@ SpMorphicDragMeAdapter >> performAction: event [
 
 { #category : #factory }
 SpMorphicDragMeAdapter >> startDrag: event [
-
+	self flag: 'used ?'.
+	1halt.
 	transferMorph := self model transferPassenger buildWithSpec.
 	transferMorph
 		align: transferMorph draggedMorph topLeft
