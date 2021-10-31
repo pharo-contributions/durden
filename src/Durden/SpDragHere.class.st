@@ -1,5 +1,6 @@
 "
-I work as a container that accepts drops into. 
+I work as an area that accepts drops.
+I will install the drop into a presenter (my #dropInto:)
 I cannot be shown by my self, but i can be embedded into different containers. 
 
 "
@@ -19,18 +20,23 @@ SpDragHere class >> adapterName [
 
 { #category : #'changing suspended state' }
 SpDragHere >> dropInto: aDropIn [
-
+	"the widget that will accept the drop"
 	dropInto := aDropIn
+]
+
+{ #category : #initialization }
+SpDragHere >> initialize [
+	super initialize.
+	self dropEnabled: true.
 ]
 
 { #category : #'changing suspended state' }
 SpDragHere >> install: aPresenter [
-
 	^ dropInto install: aPresenter
 ]
 
 { #category : #testing }
 SpDragHere >> noteThatWidgetHasBeenClosed: anAlceSourceCodeWidget [
-
+	self flag: 'to remove ?'.
 	dropInto noteThatWidgetHasBeenClosed: anAlceSourceCodeWidget
 ]
