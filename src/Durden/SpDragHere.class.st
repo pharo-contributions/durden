@@ -6,7 +6,7 @@ I cannot be shown by my self, but i can be embedded into different containers.
 "
 Class {
 	#name : #SpDragHere,
-	#superclass : #SpContainerPresenter,
+	#superclass : #SpAbstractWidgetPresenter,
 	#instVars : [
 		'dropInto'
 	],
